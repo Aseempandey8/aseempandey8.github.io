@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Aseem Pandey | Frontend Developer & AI Website Builder</title>
+
+    <meta
+      name="description"
+      content="Aseem Pandey is a frontend developer and AI website builder specializing in modern, responsive and high-performance websites."
+    />
+    <meta
+      name="keywords"
+      content="Aseem Pandey, Frontend Developer, Web Developer, AI Website Builder, Portfolio"
+    />
+    <meta name="author" content="Aseem Pandey" />
+
+    <!-- Open Graph (Social Media Preview) -->
+    <meta property="og:title" content="Aseem Pandey | Frontend Developer" />
+    <meta
+      property="og:description"
+      content="Modern, responsive and AI-powered websites for businesses and creators."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aseempandey8.github.io/" />
+
+    <!-- Favicon (optional for now) -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-6BLYGV17RJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-6BLYGV17RJ");
+    </script>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <header>
+      <div class="logo">Aseem.dev</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <div class="hero">
+      <h1>Aseem Pandey</h1>
+      <h2><span id="typing-hero"></span></h2>
+      <p>
+        I build modern, fast and responsive websites for businesses and
+        creators.
+      </p>
+      <button id="hire-btn" class="btn">Hire Me</button>
+    </div>
+    <!-- Hire Me Model -->
+    <div id="hire-modal" class="hire-modal">
+      <div class="hire-content">
+        <span id="close-hire">&times;</span>
+        <h2>Work With Me</h2>
+
+        <form id="hire-form">
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Your Official Email"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Tell me about your project"
+            required
+          ></textarea>
+          <button type="submit">Send Request</button>
+        </form>
+
+        <div id="hire-status"></div>
+      </div>
+    </div>
+    <section id="about" class="section">
+      <h2><span id="typing-about"></span></h2>
+      <p>
+        I am a beginner frontend developer learning HTML, CSS and JavaScript
+        step by step. I want to build modern AI-powered websites and grow as a
+        freelancer.
+      </p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2><span id="typing-projects"></span></h2>
+
+      <div class="projects-container">
+        <div class="project-card">
+          <h3>AI Portfolio Website</h3>
+          <p>
+            A modern responsive portfolio built using HTML, CSS and JavaScript.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Marketplace Concept</h3>
+          <p>
+            Concept design for a buyer-seller marketplace with escrow payment
+            idea.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Oracle HCM Blog</h3>
+          <p>Technical blog writing about AI Agents in Oracle Fusion HCM.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section">
+      <h2><span id="typing-blog"></span></h2>
+
+      <div class="blog-container">
+        <div class="blog-card">
+          <h3>How to Build an AI Portfolio</h3>
+          <p>
+            A step-by-step beginner guide to building your first AI-powered
+            website.
+          </p>
+          <a href="blog1.html" target="_blank">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <h3>AI Agents in Oracle Fusion HCM</h3>
+          <p>
+            Understanding how AI Agents work inside Oracle Fusion HCM modules.
+          </p>
+          <a href="blog2.html" target="_blank">Read More →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2><span id="typing-contact"></span></h2>
+
+      <form id="contact-form">
+        <input type="text" name="user_name" placeholder="Your Name" required />
+
+        <input
+          type="email"
+          name="user_email"
+          placeholder="Your Email"
+          required
+        />
+
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <div id="form-status" class="form-status"></div>
+
+        <button type="submit" id="send-btn">Send Message</button>
+      </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+      (function () {
+        emailjs.init("P3LLXFjQffpoErqSM");
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
