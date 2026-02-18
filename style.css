@@ -10,6 +10,14 @@ body {
   overflow-x: hidden;
 }
 
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -23,21 +31,18 @@ header {
   backdrop-filter: blur(10px);
 }
 
-.logo {
-  color: #3b82f6;
-  font-weight: bold;
+/* Glow */
+.glow-text {
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
 }
 
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-}
-nav a:hover {
-  color: #3b82f6;
+.glow-btn {
+  box-shadow: 0 0 10px #00ffff;
 }
 
+/* Hero */
 .hero {
   height: 100vh;
   display: flex;
@@ -49,10 +54,10 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 55px;
+  font-size: 60px;
 }
 
-button {
+.btn {
   padding: 12px 30px;
   background: #3b82f6;
   border: none;
@@ -61,26 +66,54 @@ button {
   cursor: pointer;
   transition: 0.3s;
 }
-button:hover {
-  background: #2563eb;
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
 }
 
+/* Sections */
 .section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 10%;
+  padding: 100px 10%;
   opacity: 0;
   transform: translateY(40px);
-  transition: 0.8s;
+  transition: 1s;
 }
 .section.show {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Cards */
+.card-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  padding: 25px;
+  width: 280px;
+  border-radius: 15px;
+  transition: 0.4s;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+}
+
+/* Forms */
 form {
   display: flex;
   flex-direction: column;
@@ -92,50 +125,54 @@ form {
 input,
 textarea {
   padding: 12px;
-  border-radius: 6px;
   border: none;
+  border-radius: 8px;
 }
 
-.form-status.success {
-  color: #22c55e;
-}
-.form-status.error {
-  color: #ef4444;
+button {
+  cursor: pointer;
 }
 
-/* Hire Modal */
 .hire-modal {
   display: none;
   position: fixed;
   z-index: 2000;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.5s ease;
 }
 
 .hire-content {
-  background: #0f2027;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 15px;
   width: 350px;
-  position: relative;
+  animation: scaleIn 0.4s ease;
 }
 
 #close-hire {
   position: absolute;
-  right: 15px;
-  top: 10px;
+  right: 20px;
+  top: 15px;
   cursor: pointer;
-  font-size: 20px;
 }
 
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
