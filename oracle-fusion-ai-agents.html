@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AI Agents in Oracle Fusion HCM | Aseem Pandey</title>
+
+    <!-- Connect Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation already working from your main CSS -->
+
+    <section class="blog-page">
+      <div class="blog-container-full">
+        <h1>AI Agents in Oracle Fusion HCM</h1>
+
+        <div class="blog-meta">By Aseem Pandey • 19 Feb 2026 • 8 min read</div>
+
+        <article class="blog-content">
+          <h2>AI AGENTS</h2>
+
+          <p>
+            An AI Agent in Oracle Fusion Cloud Application is like a smart
+            digital assistant that helps users to complete tasks faster and more
+            accurately. In Oracle Fusion Cloud HCM, AI Agent can answer HR
+            policy questions, guide employees, and provide smart assistance
+            directly inside transaction pages.
+          </p>
+
+          <p><strong>It works inside different modules like</strong>:</p>
+
+          <ul>
+            <li>HCM (Human Capital Management)</li>
+            <li>Finance</li>
+            <li>SCM (Supply Chain Management)</li>
+            <li>CX (Customer Experience)</li>
+          </ul>
+
+          <p><strong>Simple Example in HCM:</strong></p>
+
+          <p>Without AI Agent HR manually checks 200 resumes.</p>
+          <p>
+            With AI Agent HR can use system filters and shows 10 matching
+            candidates automatically.
+          </p>
+
+          <p>
+            In this blog, I will explain how to enable and configure AI Agents
+            in Oracle Fusion HCM application in simple steps.
+          </p>
+
+          <h2>Step 1: Check Required Access and Privileges</h2>
+
+          <p>You need:</p>
+
+          <ol>
+            <li>HRC_MANAGE_AI_AGENT_PRIV</li>
+            <li>HRC_ACCESS_AI_AGENT_CHAT_PRIV</li>
+          </ol>
+
+          <p>(To configure AI Agents, tools, and documents)</p>
+          <p>(To access the AI Agent chat feature)</p>
+
+          <h2>Step 2: Enable Required Profile Options</h2>
+
+          <p>Now we need to enable backend profile options.</p>
+
+          <ol>
+            <li>Go to Settings and Actions</li>
+          </ol>
+
+          <img src="blog-media/media/image1.png" alt="Step 1" />
+
+          <ol start="2">
+            <li>Click Setup and Maintenance</li>
+          </ol>
+
+          <img src="blog-media/media/image2.png" alt="Step 2" />
+
+          <ol start="3">
+            <li>
+              Search for <strong>Manage Administrator Profile Values</strong>
+            </li>
+          </ol>
+
+          <img src="blog-media/media/image3.png" alt="Step 3" />
+
+          <ol start="4">
+            <li>Search and set below profile options to <strong>Y</strong></li>
+          </ol>
+
+          <h3>Profile Option Code Purpose</h3>
+
+          <div class="profile-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Profile Option Code</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ORA_HCM_VBCS_PWA_ENABLED</td>
+                  <td>Enables Redwood UI</td>
+                </tr>
+                <tr>
+                  <td>ORA_PER_GUIDED_JOURNEYS_SET-UP_REDWOOD_ENABLED</td>
+                  <td>Enables Guided Journey Setup</td>
+                </tr>
+                <tr>
+                  <td>ORA_PER_AGENT_TASK_TYPE_GUIDED_JOURNEYS_ENABLED</td>
+                  <td>Enables Agent Task Type</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Set each value to: <strong>Y (Yes)</strong></p>
+
+          <img src="blog-media/media/image4.png" alt="Profile Setting 1" />
+          <img src="blog-media/media/image5.png" alt="Profile Setting 2" />
+          <img src="blog-media/media/image6.png" alt="Profile Setting 3" />
+
+          <h2>Step 3: Open Configure HCM Agents</h2>
+
+          <p>Now we begin the actual configuration</p>
+
+          <ol>
+            <li>Go to Tools</li>
+          </ol>
+
+          <img src="blog-media/media/image7.png" alt="Step 7" />
+
+          <ol start="2">
+            <li>Click AI Agent Studio</li>
+          </ol>
+
+          <img src="blog-media/media/image8.png" alt="Step 8" />
+
+          <h2>Step 4: Create a Tool (Upload Policy Documents)</h2>
+
+          <p>
+            Tools contains the documents from which AI Agent will answer
+            questions.
+          </p>
+
+          <ol>
+            <li>Go to Tools Tab</li>
+          </ol>
+
+          <img src="blog-media/media/image9.png" alt="Step 9" />
+
+          <ol start="2">
+            <li>Click Add</li>
+          </ol>
+
+          <img src="blog-media/media/image10.png" alt="Step 10" />
+
+          <ol start="3">
+            <li>Enter all the details which are required</li>
+          </ol>
+
+          <img src="blog-media/media/image11.png" alt="Step 11" />
+
+          <ol start="4">
+            <li>
+              Under Documents, click <strong>Add</strong> and enter all the
+              details which are required
+            </li>
+          </ol>
+
+          <img src="blog-media/media/image12.png" alt="Step 12" />
+
+          <ol start="5">
+            <li>Upload policy document (PDF, DOC, etc.)</li>
+          </ol>
+
+          <img src="blog-media/media/image13.png" alt="Step 13" />
+
+          <ol start="6">
+            <li>Save document</li>
+          </ol>
+
+          <img src="blog-media/media/image14.png" alt="Step 14" />
+
+          <ol start="7">
+            <li>Click Create to save tool</li>
+          </ol>
+
+          <img src="blog-media/media/image15.png" alt="Step 15" />
+
+          <p>After saving:</p>
+          <p>Status will show as <strong>Draft</strong></p>
+          <p>We need to change document status to:</p>
+          <p>
+            <strong>Ready to Publish</strong> and click on <strong>Save</strong>
+          </p>
+
+          <img src="blog-media/media/image16.png" alt="Step 16" />
+
+          <h2>Step 5: Run ESS Job to process Documents</h2>
+
+          <p>Now we process the uploaded document.</p>
+
+          <ol>
+            <li>Go to Tools</li>
+          </ol>
+
+          <img src="blog-media/media/image17.png" alt="Step 17" />
+
+          <ol start="2">
+            <li>Click Scheduled Processes</li>
+          </ol>
+
+          <img src="blog-media/media/image18.png" alt="Step 18" />
+
+          <ol start="3">
+            <li>Click Schedule New Process</li>
+          </ol>
+
+          <img src="blog-media/media/image19.png" alt="Step 19" />
+
+          <ol start="4">
+            <li>Search for: <strong>Process Agent Documents</strong></li>
+          </ol>
+
+          <img src="blog-media/media/image20.png" alt="Step 20" />
+
+          <ol start="5">
+            <li>Click <strong>Ok</strong></li>
+          </ol>
+
+          <img src="blog-media/media/image21.png" alt="Step 21" />
+
+          <ol start="6">
+            <li>Click <strong>Submit</strong></li>
+          </ol>
+
+          <img src="blog-media/media/image22.png" alt="Step 22" />
+
+          <ol start="7">
+            <li>
+              Click Ok and wait until status shows <strong>Succeeded</strong>
+            </li>
+          </ol>
+
+          <img src="blog-media/media/image23.png" alt="Step 23" />
+          <img src="blog-media/media/image24.png" alt="Step 24" />
+
+          <p>After completion:</p>
+          <p>Return to Tools → AI Agent Studio and confirm:</p>
+          <p>Status = <strong>Published</strong></p>
+
+          <img src="blog-media/media/image25.png" alt="Step 25" />
+          <img src="blog-media/media/image26.png" alt="Step 26" />
+
+          <h2>Step 6: Create an AI Agent</h2>
+
+          <p>Now let’s create the Agent.</p>
+
+          <ol>
+            <li>Go to Agents tab and click Add</li>
+          </ol>
+
+          <img src="blog-media/media/image27.png" alt="Step 27" />
+
+          <ol start="2">
+            <li>
+              Now fill the required details one by one then click on Create.
+            </li>
+          </ol>
+
+          <p>
+            Don’t forget to set the <strong>Product</strong> and
+            <strong>Family</strong> same as your created tool because the system
+            automatically links to the document type tools based on matching
+            Product + Family
+          </p>
+
+          <img src="blog-media/media/image28.png" alt="Step 28" />
+
+          <ol start="3">
+            <li>
+              Now under the Tools search and select the Tool you created and
+              click on (+) Icon
+            </li>
+          </ol>
+
+          <img src="blog-media/media/image29.png" alt="Step 29" />
+
+          <ol start="4">
+            <li>Now click Add</li>
+          </ol>
+
+          <img src="blog-media/media/image30.png" alt="Step 30" />
+
+          <ol start="5">
+            <li>Click Create</li>
+          </ol>
+
+          <img src="blog-media/media/image31.png" alt="Step 31" />
+
+          <p>Your AI Agent is now created.</p>
+          <p>Now we need to attach it to an Agent Team.</p>
+
+          <ol start="6">
+            <li>Click Agent Team and click on (+) icon</li>
+          </ol>
+
+          <img src="blog-media/media/image32.png" alt="Step 32" />
+
+          <ol start="7">
+            <li>Fill all the required details and click on Create</li>
+          </ol>
+
+          <img src="blog-media/media/image33.png" alt="Step 33" />
+
+          <ol start="8">
+            <li>
+              Now in under Agent, search and select your created Agent and click
+              on (+) icon to add it to the team
+            </li>
+          </ol>
+
+          <img src="blog-media/media/image34.png" alt="Step 34" />
+
+          <ol start="9">
+            <li>Now click on Publish</li>
+          </ol>
+
+          <img src="blog-media/media/image35.png" alt="Step 35" />
+
+          <h2>Step 7: Create a Guided Journey with Agent Task</h2>
+
+          <p>Now we attach the Agent to a Guided Journey</p>
+
+          <ol>
+            <li>Go to My Client Groups</li>
+          </ol>
+
+          <img src="blog-media/media/image36.png" alt="Step 36" />
+
+          <ol start="2">
+            <li>Click show more in Quick Actions</li>
+          </ol>
+
+          <img src="blog-media/media/image37.png" alt="Step 37" />
+
+          <ol start="3">
+            <li>Search for <strong>Guided Journey</strong></li>
+          </ol>
+
+          <img src="blog-media/media/image38.png" alt="Step 38" />
+
+          <ol start="4">
+            <li>Click Create</li>
+          </ol>
+
+          <img src="blog-media/media/image39.png" alt="Step 39" />
+
+          <ol start="5">
+            <li>Fill the required details and click Create Draft</li>
+          </ol>
+
+          <img src="blog-media/media/image40.png" alt="Step 40" />
+
+          <ol start="6">
+            <li>Now go to Tasks and click Add (+)</li>
+          </ol>
+
+          <img src="blog-media/media/image41.png" alt="Step 41" />
+
+          <ol start="7">
+            <li>Now fill the required details and click Save</li>
+          </ol>
+
+          <img src="blog-media/media/image42.png" alt="Step 42" />
+
+          <ol start="8">
+            <li>Click Activate</li>
+          </ol>
+
+          <img src="blog-media/media/image43.png" alt="Step 43" />
+
+          <h2>Step 8: Attach Guided Journey to a Page (Using VBS)</h2>
+
+          <p>Now we connect it to a page.</p>
+
+          <ol>
+            <li>Navigate to any page you want AI support on</li>
+            <li>Click Edit Page in <strong>Visual Builder Studio</strong></li>
+          </ol>
+
+          <img src="blog-media/media/image44.png" alt="Step 44" />
+
+          <ol start="3">
+            <li>
+              Click on the suitable project and click on Request Membership
+            </li>
+          </ol>
+
+          <p>Wait for approval.</p>
+
+          <img src="blog-media/media/image45.png" alt="Step 45" />
+
+          <ol start="4">
+            <li>In page properties section:</li>
+          </ol>
+
+          <p>Enter the Guided Journey Code</p>
+
+          <ol start="5">
+            <li>Save and Publish customization</li>
+          </ol>
+
+          <h2>Final Testing</h2>
+
+          <p>Now go to the page where you enabled it.</p>
+
+          <p>You will see:</p>
+
+          <ol>
+            <li>Chat Option</li>
+            <li>AI Agent responding from your uploaded documents.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>

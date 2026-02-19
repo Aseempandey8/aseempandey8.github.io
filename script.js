@@ -1,32 +1,6 @@
 (function () {
   emailjs.init("P3LLXFjQffpoErqSM");
 })();
-// ===============================
-// SCROLL ACTIVE NAV LINK
-// ===============================
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-
-    if (window.scrollY >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.style.color = "white";
-    if (link.getAttribute("href") === "#" + current) {
-      link.style.color = "#3b82f6";
-    }
-  });
-});
 
 // ===============================
 // EMAILJS CONTACT FORM
@@ -103,6 +77,38 @@ particlesJS("particles-js", {
     },
   },
 });
+
+// ===============================
+// ACTIVE NAV LINK (Intersection Based)
+// ===============================
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active-link");
+
+          if (link.getAttribute("href") === "#" + id) {
+            link.classList.add("active-link");
+          }
+        });
+      }
+    });
+  },
+  {
+    threshold: 0.6, // 60% visible
+  },
+);
+
+sections.forEach((section) => {
+  navObserver.observe(section);
+});
 // ===== Typing Animations =====
 
 // Hero Typing
@@ -114,31 +120,6 @@ new Typed("#typing-hero", {
   loop: true,
 });
 
-// Section Headings Typing (Only Once)
-
-new Typed("#typing-about", {
-  strings: ["About Me"],
-  typeSpeed: 70,
-  showCursor: false,
-});
-
-new Typed("#typing-projects", {
-  strings: ["Projects"],
-  typeSpeed: 70,
-  showCursor: false,
-});
-
-new Typed("#typing-blog", {
-  strings: ["Blog"],
-  typeSpeed: 70,
-  showCursor: false,
-});
-
-new Typed("#typing-contact", {
-  strings: ["Contact Me"],
-  typeSpeed: 70,
-  showCursor: false,
-});
 // Hire Me Modal
 const hireBtn = document.getElementById("hire-btn");
 const hireModal = document.getElementById("hire-modal");
@@ -181,4 +162,74 @@ document.getElementById("hire-form").addEventListener("submit", function (e) {
         console.log(error);
       },
     );
+});
+document.getElementById("hire-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const status = document.getElementById("hire-status");
+  const hireBtn = document.getElementById("hire-send-btn");
+
+  hireBtn.disabled = true;
+  hireBtn.innerText = "Sending...";
+
+  emailjs
+    .send("service_hke7o2w", "template_dqcligf", {
+      user_name: this.user_name.value,
+      user_email: this.user_email.value,
+      message: this.message.value,
+    })
+    .then(
+      function () {
+        status.innerHTML = "✅ Request sent successfully!";
+        status.style.color = "lightgreen";
+
+        document.getElementById("hire-form").reset();
+
+        hireBtn.disabled = false;
+        hireBtn.innerText = "Send Request";
+
+        // 🔥 Auto remove message after 4 seconds
+        setTimeout(() => {
+          status.innerHTML = "";
+        }, 4000);
+      },
+      function (error) {
+        status.innerHTML = "❌ Failed to send request.";
+        status.style.color = "red";
+
+        hireBtn.disabled = false;
+        hireBtn.innerText = "Send Request";
+
+        // 🔥 Auto remove error after 4 seconds
+        setTimeout(() => {
+          status.innerHTML = "";
+        }, 4000);
+
+        console.log(error);
+      },
+    );
+});
+// ===============================
+// MOBILE NAV AUTO CLOSE
+// ===============================
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector("nav");
+const navItems = document.querySelectorAll("nav a");
+
+// Toggle menu (already exists in your code probably)
+// If you already have this, do NOT duplicate it
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+}
+
+// Close menu when clicking any nav link (Mobile Only)
+navItems.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      navMenu.classList.remove("active");
+    }
+  });
 });

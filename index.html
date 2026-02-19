@@ -51,8 +51,11 @@
 
     <header>
       <div class="logo">Aseem.dev</div>
-      <nav>
-        <a href="#">Home</a>
+
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+
+      <nav id="navbar">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#blog">Blog</a>
@@ -60,15 +63,20 @@
       </nav>
     </header>
 
-    <div class="hero">
+    <section id="home" class="hero">
       <h1>Aseem Pandey</h1>
       <h2><span id="typing-hero"></span></h2>
       <p>
         I build modern, fast and responsive websites for businesses and
         creators.
       </p>
-      <button id="hire-btn" class="btn">Hire Me</button>
-    </div>
+      <div class="hero-buttons">
+        <button id="hire-btn" class="btn">Hire Me</button>
+        <a href="Resume/Aseem Pandey ATS Resume.pdfgit " download>
+          <button class="btn">Download Resume</button>
+        </a>
+      </div>
+    </section>
 
     <!-- Hire Modal -->
     <div id="hire-modal" class="hire-modal">
@@ -94,7 +102,9 @@
             placeholder="Tell me about your project"
             required
           ></textarea>
-          <button type="submit">Send Request</button>
+          <button type="submit" id="hire-send-btn" class="primary-btn">
+            Send Request
+          </button>
         </form>
 
         <div id="hire-status"></div>
@@ -102,42 +112,78 @@
     </div>
 
     <section id="about" class="section">
-      <h2><span id="typing-about"></span></h2>
-      <p>
-        I am a beginner frontend developer learning HTML, CSS and JavaScript
-        step by step. I want to build modern AI-powered websites and grow as a
-        freelancer.
-      </p>
-    </section>
+      <h2>About Me</h2>
 
-    <section id="projects" class="section">
-      <h2><span id="typing-projects"></span></h2>
-
-      <div class="projects-container">
-        <div class="project-card">
-          <h3>AI Portfolio Website</h3>
+      <div class="about-container">
+        <div class="about-text">
           <p>
-            A modern responsive portfolio built using HTML, CSS and JavaScript.
+            I am a beginner web developer using HTML, CSS and JavaScript with
+            the help of modern AI tools. I focus on building modern AI-powered
+            fully responsive websites and improving my skills daily.
+          </p>
+
+          <p>
+            My goal is to become a professional freelancer and build
+            high-quality, responsive and fast websites for businesses.
           </p>
         </div>
 
-        <div class="project-card">
-          <h3>Marketplace Concept</h3>
-          <p>
-            Concept design for a buyer-seller marketplace with escrow payment
-            idea.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <h3>Oracle HCM Blog</h3>
-          <p>Technical blog writing about AI Agents in Oracle Fusion HCM.</p>
+        <div class="about-image">
+          <img src="Images/profile.jpg.jpeg" alt="Aseem Pandey" />
         </div>
       </div>
     </section>
 
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+
+      <div class="projects-container">
+        <a
+          href="portfolio.html"
+          class="project-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-card">
+            <h3>AI Portfolio Website</h3>
+            <p>
+              A modern responsive portfolio built using HTML, CSS and
+              JavaScript.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="marketplace.html"
+          class="project-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-card">
+            <h3>Marketplace Concept</h3>
+            <p>
+              Concept design for a buyer-seller marketplace with escrow payment
+              idea.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="oracle-project.html"
+          class="project-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-card">
+            <h3>Oracle HCM Blog</h3>
+            <p>Technical blog writing about AI Agents in Oracle Fusion HCM.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <section id="blog" class="section">
-      <h2><span id="typing-blog"></span></h2>
+      <h2>Blog</h2>
 
       <div class="blog-container">
         <div class="blog-card">
@@ -154,27 +200,40 @@
           <p>
             Understanding how AI Agents work inside Oracle Fusion HCM modules.
           </p>
-          <a href="blog2.html" target="_blank">Read More →</a>
+          <a href="oracle-fusion-ai-agents.html" target="_blank">Read More →</a>
         </div>
       </div>
     </section>
 
     <section id="contact" class="section">
-      <h2><span id="typing-contact"></span></h2>
+      <h2>Contact Me</h2>
 
-      <form id="contact-form">
-        <input type="text" name="user_name" placeholder="Your Name" required />
-        <input
-          type="email"
-          name="user_email"
-          placeholder="Your Email"
-          required
-        />
-        <textarea name="message" placeholder="Your Message" required></textarea>
+      <div class="contact-glass">
+        <form id="contact-form">
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Your Email"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
 
-        <div id="form-status" class="form-status"></div>
-        <button type="submit" id="send-btn">Send Message</button>
-      </form>
+          <div id="form-status" class="form-status"></div>
+          <button type="submit" id="send-btn" class="primary-btn">
+            Send Message
+          </button>
+        </form>
+      </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -186,5 +245,13 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbar = document.getElementById("navbar");
+
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>
